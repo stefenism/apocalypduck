@@ -17,7 +17,7 @@ public class AIDuckManager : MonoBehaviourSingleton<AIDuckManager>
         
     }
 
-    public void SendDuckToAttack(GameObject attackObj)
+    public void SendDuckToAttack(ObstacleStats attackObj)
     {
         if( AvailableDuckCount > 0 )
         {

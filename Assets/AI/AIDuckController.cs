@@ -83,7 +83,7 @@ public class AIDuckController : MonoBehaviour
         state = AiDuckState.followPlayer;
     }
 
-    public void AttackObject(GameObject attackObj)
+    public void AttackObject(ObstacleStats attackObj)
     {
         if (state != AiDuckState.attackObject)
         {
