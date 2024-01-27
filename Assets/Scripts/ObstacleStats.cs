@@ -125,7 +125,7 @@ public class ObstacleStats : MonoBehaviour
             timeElapsed += Time.deltaTime;
             //TODO: increase ducks assigned rate based on time passed and max ducks allowed
             yield return new WaitForSeconds(1f);
-            if ((o_isDuckable || o_overrideIsDuckable) && o_health > 0 && o_isTargeted && o_currentDucks < o_maxDucks)
+            if ((o_isDuckable || o_overrideIsDuckable) && o_health > 0 && o_isTargeted)
             {
                 o_currentDucks++;
             }
