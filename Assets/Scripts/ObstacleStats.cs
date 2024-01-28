@@ -127,13 +127,19 @@ public class ObstacleStats : MonoBehaviour
 
     private IEnumerator AssignDucks()
     {
+        float timer = 0f;
+        bool duckApplied = false;
         while(true)
         {
             if ((o_isDuckable || o_overrideIsDuckable) && o_health > 0)
             {
-                manager.SendDuckToAttack(this.gameObject.GetComponent<ObstacleStats>());
+                timer -= Time.deltaTime;
+                if(timer <= 0f){
+                    manager.SendDuckToAttack(this.gameObject.GetComponent<ObstacleStats>());
+                    timer = duckApplied ? .1f : 1f;
+                }
             }
-            yield return new WaitForSeconds(1f);
+            yield return null;
         }
     }
 
