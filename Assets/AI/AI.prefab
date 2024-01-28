@@ -520,6 +520,9 @@ MonoBehaviour:
   laserLineRight: {fileID: 9024396708665651622}
   LeftEye: {fileID: 1037862301238081291}
   RightEye: {fileID: 7707869713958916616}
+  LandingSound: {fileID: 8300000, guid: e6c8a653c46c67549aaf626da21971ce, type: 3}
+  landingPitchMod: {x: 0.5, y: 1}
+  landingVolume: 0.1
 --- !u!114 &4644264131019648508
 MonoBehaviour:
   m_ObjectHideFlags: 0
