@@ -34,5 +34,9 @@ public class AIDuckManager : MonoBehaviourSingleton<AIDuckManager>
         {
             busyDucks[0].FollowPlayer();
         }
+        foreach(AIDuckController duck in allDucks)
+        {
+            duck.ConsumeDuck();
+        }
     }
 }
