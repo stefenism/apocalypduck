@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6971873478718802033}
   - component: {fileID: 1394721361054575752}
+  - component: {fileID: 1117242330181607704}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -48,3 +49,17 @@ MonoBehaviour:
   allDucks: []
   busyDucks: []
   avaiableDucks: []
+  AiDPS: 0.5
+--- !u!114 &1117242330181607704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2496961342005228886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 849702558e93456469f72ded57d76cc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSourcePrefab: {fileID: 8864002143289679558, guid: fde515450a4af7d4e9ec2d8e2cb17c1e, type: 3}
