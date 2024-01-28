@@ -755,7 +755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2506681381285749131, guid: a059027727906954ea24e93f442c906c, type: 3}
       propertyPath: o_maxHealth
-      value: 100
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2506681381285749131, guid: a059027727906954ea24e93f442c906c, type: 3}
       propertyPath: playerStats
@@ -2858,11 +2858,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2506681381285749131, guid: a059027727906954ea24e93f442c906c, type: 3}
       propertyPath: o_health
-      value: 30
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2506681381285749131, guid: a059027727906954ea24e93f442c906c, type: 3}
       propertyPath: o_maxHealth
-      value: 100
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2506681381285749131, guid: a059027727906954ea24e93f442c906c, type: 3}
       propertyPath: playerStats
@@ -4914,11 +4914,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2503498805933547390, guid: 499c40a14f41faa4daeff8d4af49a1a8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000079349505
+      value: 0.000000028226228
       objectReference: {fileID: 0}
     - target: {fileID: 2503498805933547390, guid: 499c40a14f41faa4daeff8d4af49a1a8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000013007458
+      value: -0.000000004627018
       objectReference: {fileID: 0}
     - target: {fileID: 3471859116466979453, guid: 499c40a14f41faa4daeff8d4af49a1a8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4942,11 +4942,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3471859116466979453, guid: 499c40a14f41faa4daeff8d4af49a1a8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000003003857
+      value: -0.000000030038574
       objectReference: {fileID: 0}
     - target: {fileID: 3471859116466979453, guid: 499c40a14f41faa4daeff8d4af49a1a8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000054854556
+      value: 0.000000005485456
       objectReference: {fileID: 0}
     - target: {fileID: 3471859116466979453, guid: 499c40a14f41faa4daeff8d4af49a1a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4966,11 +4966,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3971844214278205443, guid: 499c40a14f41faa4daeff8d4af49a1a8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000063668715
+      value: 0.0000000038010484
       objectReference: {fileID: 0}
     - target: {fileID: 3971844214278205443, guid: 499c40a14f41faa4daeff8d4af49a1a8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000012827691
+      value: -7.658194e-10
       objectReference: {fileID: 0}
     - target: {fileID: 8018258019271413025, guid: 499c40a14f41faa4daeff8d4af49a1a8, type: 3}
       propertyPath: m_Follow
@@ -4982,11 +4982,11 @@ PrefabInstance:
       objectReference: {fileID: 1336337724}
     - target: {fileID: 8679712825846104429, guid: 499c40a14f41faa4daeff8d4af49a1a8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000007043371
+      value: -0.0000000027278446
       objectReference: {fileID: 0}
     - target: {fileID: 8679712825846104429, guid: 499c40a14f41faa4daeff8d4af49a1a8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000012862165
+      value: 4.981411e-10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5129,11 +5129,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2506681381285749131, guid: a059027727906954ea24e93f442c906c, type: 3}
       propertyPath: o_health
-      value: 100
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2506681381285749131, guid: a059027727906954ea24e93f442c906c, type: 3}
       propertyPath: o_maxHealth
-      value: 100
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2506681381285749131, guid: a059027727906954ea24e93f442c906c, type: 3}
       propertyPath: playerStats

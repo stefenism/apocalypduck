@@ -17,7 +17,7 @@ public class spawner : MonoBehaviour {
         }
     }
 
-    void spawn(float destroyInSeconds = 0) {
+    public void spawn(float destroyInSeconds = 0) {
         for (int i = 0; i < spawCount; i++) {
             GameObject clone = Instantiate(spawnPrefab, transform.position, transform.rotation);
         }

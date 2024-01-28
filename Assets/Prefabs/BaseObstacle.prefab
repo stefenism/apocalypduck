@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 6142850521832581653}
   - component: {fileID: 3560037006581357901}
   - component: {fileID: 8473865395119245079}
+  - component: {fileID: 6805460771787021607}
   m_Layer: 6
   m_Name: BaseObstacle
   m_TagString: Untagged
@@ -207,13 +208,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 0}
-  o_health: 70
-  o_maxHealth: 100
+  o_health: 2
+  o_maxHealth: 4
   o_convertToDucks: 15
   o_isDuckable: 0
   o_overrideIsDuckable: 0
   o_isLasered: 0
   o_isTargeted: 0
+  o_isInSights: 0
   o_damageTaken: 0
 --- !u!208 &1623308653877773044
 NavMeshObstacle:
@@ -275,3 +277,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   auraClone: {fileID: 69515967650383751}
+--- !u!114 &6805460771787021607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288596119110801167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bbd42ef926ca07d1b4f535041456744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPrefab: {fileID: 9055859072837969849, guid: c88e200287e2bb74797d1273f3e6f934, type: 3}
+  spawCount: 1

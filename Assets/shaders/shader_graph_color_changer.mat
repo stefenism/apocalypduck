@@ -42,7 +42,7 @@ Material:
     - _BUILTIN_QueueOffset: 0
     - _bottom: 1
     - _bottomColor: 4
-    - _origin: 3.5078573
+    - _origin: 0.56
     - _percentFilled: 0.1
     - _spread: 0.1
     - _top: 0

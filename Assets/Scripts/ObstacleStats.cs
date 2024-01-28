@@ -111,9 +111,16 @@ public class ObstacleStats : MonoBehaviour
             if ((o_isDuckable || o_overrideIsDuckable) && o_health > 0 && o_isLasered)
             {
                 o_health -= o_damageTaken;
-                if (o_health < 0)
+
+                duckConversionController dcc = this.gameObject.GetComponent<duckConversionController>();
+                float healthRatio = o_health/o_maxHealth;
+                dcc.SetPercentFilled(healthRatio);
+
+                if (o_health <= 0)
                 {
                     o_health = 0;
+                    spawner s = this.gameObject.GetComponent<spawner>();
+                    s.spawn();
                 }
             }
         }
