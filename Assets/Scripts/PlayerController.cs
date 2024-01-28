@@ -18,11 +18,14 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     private Vector3 playerMoveInput;
 
+    AIDuckManager duckManager => AIDuckManager.Instance;
+
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         playerCamera = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        duckManager.player = gameObject;
     }
 
     // Update is called once per frame

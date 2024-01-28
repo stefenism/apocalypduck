@@ -8,16 +8,13 @@ public class ObstacleStats : MonoBehaviour
     private PlayerStats playerStats;
 
     [SerializeField]
-    private float o_health;
+    private float o_health = 100;
+
+    [SerializeField]
+    private float o_maxHealth = 100;
 
     [SerializeField]
     private int o_convertToDucks;
-
-    [SerializeField]
-    private int o_maxDucks;
-
-    [SerializeField]
-    private int o_currentDucks = 0;
 
     [SerializeField]
     private bool o_isDuckable = false;
@@ -32,7 +29,12 @@ public class ObstacleStats : MonoBehaviour
     private bool o_isTargeted = false;
 
     [SerializeField]
+    private bool o_isInSights = false;
+
+    [SerializeField]
     private float o_damageTaken;
+
+    AIDuckManager manager => AIDuckManager.Instance;
 
     public float health
     {
@@ -40,22 +42,16 @@ public class ObstacleStats : MonoBehaviour
         set { o_health = value; }
     }
 
+    public float maxHealth
+    {
+        get { return o_maxHealth; }
+        set { o_maxHealth = value; }
+    }
+
     public int convertToDucks
     {
         get { return o_convertToDucks; }
         set { o_convertToDucks = value; }
-    }
-
-    public int maxDucks
-    {
-        get { return o_maxDucks; }
-        set { o_maxDucks = value; }
-    }
-
-    public int currentDucks
-    {
-        get { return o_currentDucks; }
-        set { o_currentDucks = value; }
     }
 
     public bool isDuckable
@@ -74,6 +70,12 @@ public class ObstacleStats : MonoBehaviour
     {
         get { return o_isTargeted; }
         set { o_isTargeted = value; }
+    }
+
+    public bool isInSights
+    {
+        get { return o_isInSights; }
+        set { o_isInSights = value; }
     }
 
     public float damageTaken
@@ -109,9 +111,16 @@ public class ObstacleStats : MonoBehaviour
             if ((o_isDuckable || o_overrideIsDuckable) && o_health > 0 && o_isLasered)
             {
                 o_health -= o_damageTaken;
-                if (o_health < 0)
+
+                duckConversionController dcc = this.gameObject.GetComponent<duckConversionController>();
+                float healthRatio = o_health/o_maxHealth;
+                dcc.SetPercentFilled(healthRatio);
+
+                if (o_health <= 0)
                 {
                     o_health = 0;
+                    spawner s = this.gameObject.GetComponent<spawner>();
+                    s.spawn();
                 }
             }
         }
@@ -124,11 +133,11 @@ public class ObstacleStats : MonoBehaviour
         {
             timeElapsed += Time.deltaTime;
             //TODO: increase ducks assigned rate based on time passed and max ducks allowed
-            yield return new WaitForSeconds(1f);
             if ((o_isDuckable || o_overrideIsDuckable) && o_health > 0 && o_isTargeted)
             {
-                o_currentDucks++;
+                manager.SendDuckToAttack(this.gameObject.GetComponent<ObstacleStats>());
             }
+            yield return new WaitForSeconds(1f);
         }
     }
 
