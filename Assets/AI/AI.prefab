@@ -524,10 +524,10 @@ MonoBehaviour:
   laserPlayer: {fileID: 1715046517506654767}
   LandingSound: {fileID: 8300000, guid: e6c8a653c46c67549aaf626da21971ce, type: 3}
   landingPitchMod: {x: 0.5, y: 1}
-  landingVolume: 0.3
+  landingVolume: 0.5
   attackSound: {fileID: 8300000, guid: 858b13a6c341c064f95e1f9d10fdcbae, type: 3}
   attackPitchMod: {x: 0.25, y: 0.8}
-  attackVolume: 1.5
+  attackVolume: 1
 --- !u!114 &4644264131019648508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,7 +585,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b109c17417e3c3841a5b39dc600373c3, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: -0.83
   Loop: 1
