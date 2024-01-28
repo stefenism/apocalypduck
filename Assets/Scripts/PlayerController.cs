@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     private Vector3 playerMoveInput;
 
+    public Transform duckAIGatherPoint;
+
     //animation
     public GameObject duckPos;
     public GameObject duckMesh;
@@ -34,7 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         playerCamera = GameObject.FindGameObjectWithTag("MainCamera").transform;
-        duckManager.player = gameObject;
+        duckManager.player = this;
 
         duckPos.transform.parent = null;
         JumpToPosition();
@@ -48,7 +50,8 @@ public class PlayerController : MonoBehaviour
         RotatePlayer();
         RecallAllDucks();
 
-        if (Vector3.Distance(transform.position, lastJumpPos) >= distToJump)
+        if (Vector3.Distance(transform.position, lastJumpPos) >= distToJump || 
+            ( isLasering && Quaternion.Angle(transform.rotation,duckPos.transform.rotation)>20.0f ) )
         {
             if (!jumpCooldown)
             {

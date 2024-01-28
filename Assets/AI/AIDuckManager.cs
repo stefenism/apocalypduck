@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AIDuckManager : MonoBehaviourSingleton<AIDuckManager>
 {
-    public GameObject player;
+    public PlayerController player;
     public List<AIDuckController> allDucks = new();
     public List<AIDuckController> busyDucks = new();
     public List<AIDuckController> avaiableDucks = new();
