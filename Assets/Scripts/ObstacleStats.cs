@@ -14,12 +14,6 @@ public class ObstacleStats : MonoBehaviour
     private int o_convertToDucks;
 
     [SerializeField]
-    private int o_maxDucks;
-
-    [SerializeField]
-    private int o_currentDucks = 0;
-
-    [SerializeField]
     private bool o_isDuckable = false;
 
     [SerializeField]
@@ -34,6 +28,8 @@ public class ObstacleStats : MonoBehaviour
     [SerializeField]
     private float o_damageTaken;
 
+    AIDuckManager manager => AIDuckManager.Instance;
+
     public float health
     {
         get { return o_health; }
@@ -44,18 +40,6 @@ public class ObstacleStats : MonoBehaviour
     {
         get { return o_convertToDucks; }
         set { o_convertToDucks = value; }
-    }
-
-    public int maxDucks
-    {
-        get { return o_maxDucks; }
-        set { o_maxDucks = value; }
-    }
-
-    public int currentDucks
-    {
-        get { return o_currentDucks; }
-        set { o_currentDucks = value; }
     }
 
     public bool isDuckable
@@ -127,7 +111,7 @@ public class ObstacleStats : MonoBehaviour
             yield return new WaitForSeconds(1f);
             if ((o_isDuckable || o_overrideIsDuckable) && o_health > 0 && o_isTargeted)
             {
-                o_currentDucks++;
+                manager.SendDuckToAttack(this.gameObject.GetComponent<ObstacleStats>());
             }
         }
     }
