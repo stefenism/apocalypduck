@@ -27,13 +27,13 @@ public class duckConversionController : MonoBehaviour {
         thisObstacle = transform.parent.GetComponent<ObstacleStats>();
         float healthRatio = thisObstacle.health/thisObstacle.maxHealth;
         // Debug.Log("starting health ratio is: " + (transform.position.y + healthRatio));
-        rend.material.SetFloat("_origin", (transform.position.y + 1f) - (2 * healthRatio));
+        rend.material.SetFloat("_origin", (transform.position.y + transform.parent.localScale.y) - (2 * transform.parent.localScale.y * healthRatio));
 
     }
 
     public void SetPercentFilled(float healthRatio) {
         Debug.Log("mat origin bottom: " + (transform.position.y - .5f));
-        float evaluatedOrigin = (transform.position.y + 1f) - (2 * healthRatio);
+        float evaluatedOrigin = (transform.position.y + transform.parent.localScale.y) - (2 * transform.parent.localScale.y * healthRatio);
         // Debug.Log("evaluated origin is: " + transform.position.y - .5f + evaluatedOrigin);
         rend.material.SetFloat("_origin", evaluatedOrigin);
     }
