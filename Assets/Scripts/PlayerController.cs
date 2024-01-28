@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -18,6 +19,16 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     private Vector3 playerMoveInput;
 
+    public Transform duckAIGatherPoint;
+
+    //animation
+    public GameObject duckPos;
+    public GameObject duckMesh;
+    Vector3 lastJumpPos;
+    float distToJump = 1;
+    bool jumpCooldown = false;
+    bool isLasering = false;
+
     AIDuckManager duckManager => AIDuckManager.Instance;
 
     // Start is called before the first frame update
@@ -25,7 +36,10 @@ public class PlayerController : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         playerCamera = GameObject.FindGameObjectWithTag("MainCamera").transform;
-        duckManager.player = gameObject;
+        duckManager.player = this;
+
+        duckPos.transform.parent = null;
+        JumpToPosition();
     }
 
     // Update is called once per frame
@@ -35,6 +49,15 @@ public class PlayerController : MonoBehaviour
         MovePlayer();
         RotatePlayer();
         RecallAllDucks();
+
+        if (Vector3.Distance(transform.position, lastJumpPos) >= distToJump || 
+            ( isLasering && Quaternion.Angle(transform.rotation,duckPos.transform.rotation)>20.0f ) )
+        {
+            if (!jumpCooldown)
+            {
+                JumpToPosition();
+            }
+        }
     }
 
     private void RecallAllDucks()
@@ -72,5 +95,23 @@ public class PlayerController : MonoBehaviour
     {
         transform.forward = playerCamera.forward;
         transform.rotation = new Quaternion(0, playerCamera.rotation.y, 0, playerCamera.rotation.w);
+    }
+
+    async void JumpToPosition()
+    {
+        lastJumpPos = transform.position;
+        jumpCooldown = true;
+        float airTime = 0.3f;
+        float groundTime = 0.15f;
+        float upTime = airTime * 0.7f;
+        float dropTime = airTime - upTime;
+        LeanTween.move(duckPos, transform.position, airTime);
+        LeanTween.rotate(duckPos, transform.rotation.eulerAngles, airTime);
+
+        LeanTween.moveLocalY(duckMesh, 0.6f, upTime).setEaseOutCirc();
+        await Task.Delay(Mathf.RoundToInt(upTime * 1000));
+        LeanTween.moveLocalY(duckMesh, 0.0f, dropTime).setEaseInCirc();
+        await Task.Delay(Mathf.RoundToInt((dropTime + groundTime) * 1000));
+        jumpCooldown = false;
     }
 }

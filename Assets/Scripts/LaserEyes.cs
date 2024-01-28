@@ -54,8 +54,10 @@ public class LaserEyes : MonoBehaviour
         {
             ChangeRayColor(Color.yellow);
         }
+        int x = (Screen.width / 2);
+        int y = (Screen.height / 2);
         laserLine.SetPosition(0, transform.position);
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay( new Vector2( x,y ) );
         if (Physics.Raycast(ray, out RaycastHit hit, playerStats.laserRange))
         {
             targetObject = hit.collider.gameObject;
@@ -92,6 +94,8 @@ public class LaserEyes : MonoBehaviour
                     lastSightedEnemy = null;
                 }
 
+                laserLine.enabled = false;
+
                 ChangeRayColor(Color.yellow);
             }
 
@@ -100,6 +104,7 @@ public class LaserEyes : MonoBehaviour
         else
         {
             laserLine.SetPosition(1, transform.position);
+            laserLine.enabled = false;
             lastSightedEnemy = null;
         }
     }
