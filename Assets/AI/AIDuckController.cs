@@ -42,6 +42,7 @@ public class AIDuckController : MonoBehaviour
     public AudioClip attackSound;
     public Vector2 attackPitchMod;
     public float attackVolume = 0.4f;
+    public AudioClip explosionSound;
 
     AIDuckManager manager => AIDuckManager.Instance;
 
@@ -190,8 +191,10 @@ public class AIDuckController : MonoBehaviour
             dcc.SetPercentFilled(healthRatio);
 
             if(attackObstacle.health <= 0) {
+                SoundManager.PlaySound(explosionSound, attackObstacle.transform, new Vector2(-0.4f, 0.4f), 0.6f);
                 spawner s = attackObstacle.gameObject.GetComponent<spawner>();
                 s.spawn();
+               
             }
 
             //Render Laser
