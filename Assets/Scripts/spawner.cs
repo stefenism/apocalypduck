@@ -15,9 +15,6 @@ public class spawner : MonoBehaviour {
     }
 
     void Update() {
-        if(Input.GetKeyDown("i")) {
-            spawn(3);
-        }
     }
 
     public void spawn(float destroyInSeconds = 0) {
