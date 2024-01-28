@@ -87,7 +87,7 @@ public class AIDuckController : MonoBehaviour
         manager.busyDucks.Remove(this);
         manager.avaiableDucks.Add(this);
         isLasering = false;
-        target = manager.player.transform;
+        target = manager.player.duckAIGatherPoint;
         state = AiDuckState.followPlayer;
     }
 
@@ -174,7 +174,7 @@ public class AIDuckController : MonoBehaviour
             //add damage
             attackObstacle.health -= manager.AiDPS * Time.deltaTime;
 
-            duckConversionController dcc = attackObstacle.gameObject.GetComponent<duckConversionController>();
+            duckConversionController dcc = attackObstacle.gameObject.GetComponentInChildren<duckConversionController>();
             float healthRatio = attackObstacle.health/attackObstacle.maxHealth;
             Debug.Log("health ratio is: " + healthRatio);
             dcc.SetPercentFilled(healthRatio);
