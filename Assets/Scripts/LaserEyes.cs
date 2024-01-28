@@ -12,6 +12,7 @@ public class LaserEyes : MonoBehaviour
     private ObstacleStats obstacleStats = null;
     private GameObject targetObject;
     private ObstacleStats lastSightedEnemy;
+    public Material laserMat;
     LineRenderer laserLine;
 
     // Start is called before the first frame update
@@ -19,6 +20,7 @@ public class LaserEyes : MonoBehaviour
     {
         playerCamera = GameObject.FindGameObjectWithTag("MainCamera").transform;
         laserLine = GetComponent<LineRenderer>();
+        laserLine.enabled = false;
         ChangeRayColor(Color.yellow);
     }
 
@@ -67,7 +69,7 @@ public class LaserEyes : MonoBehaviour
                 obstacleStats = targetObject.GetComponent<ObstacleStats>();
             }
             else if (targetObject.layer == 6 && !(Input.GetMouseButton(0) || Input.GetMouseButton(1))) {
-                
+                Debug.Log("no mouse button but object is on right layer");
                 if(lastSightedEnemy != null) {
                     lastSightedEnemy.isInSights = false;
                 }
@@ -114,11 +116,13 @@ public class LaserEyes : MonoBehaviour
             obstacleStats.isLasered = true;
             //TODO: Calculate damage based on parameters
             obstacleStats.damageTaken = 1;
+            laserLine.enabled = true;
         }
         else
         {
             ChangeRayColor(Color.yellow);
             obstacleStats.isLasered = false;
+            laserLine.enabled = false;
         }
     }
 }
