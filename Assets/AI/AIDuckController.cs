@@ -79,7 +79,7 @@ public class AIDuckController : MonoBehaviour
         if (state == AiDuckState.followPlayer) return;
         manager.busyDucks.Remove(this);
         manager.avaiableDucks.Add(this);
-
+        target = manager.player.transform;
         state = AiDuckState.followPlayer;
     }
 
