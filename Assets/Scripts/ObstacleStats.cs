@@ -112,7 +112,7 @@ public class ObstacleStats : MonoBehaviour
             {
                 o_health -= (o_damageTaken * Time.deltaTime);
 
-                duckConversionController dcc = this.gameObject.GetComponent<duckConversionController>();
+                duckConversionController dcc = this.gameObject.GetComponentInChildren<duckConversionController>();
                 float healthRatio = o_health/o_maxHealth;
                 dcc.SetPercentFilled(healthRatio);
 

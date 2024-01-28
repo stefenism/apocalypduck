@@ -24,7 +24,7 @@ public class duckConversionController : MonoBehaviour {
         rend = GetComponent<Renderer>();
         rend.material.shader = Shader.Find("Shader Graphs/gradient_shader");
 
-        thisObstacle = GetComponent<ObstacleStats>();
+        thisObstacle = transform.parent.GetComponent<ObstacleStats>();
         float healthRatio = thisObstacle.health/thisObstacle.maxHealth;
         // Debug.Log("starting health ratio is: " + (transform.position.y + healthRatio));
         rend.material.SetFloat("_origin", (transform.position.y + 1f) - (2 * healthRatio));
