@@ -26,7 +26,6 @@ public class LaserEyes : MonoBehaviour
     void Update()
     {
         GetAndDrawRay();
-        OnLeftMouseClick();
         OnRightMouseClick();
     }
 
@@ -100,22 +99,6 @@ public class LaserEyes : MonoBehaviour
         {
             laserLine.SetPosition(1, transform.position);
             lastSightedEnemy = null;
-        }
-    }
-
-    private void OnLeftMouseClick()
-    {
-        if (obstacleStats == null)
-        {
-            return;
-        }
-        if (Input.GetMouseButton(0))
-        {
-            obstacleStats.isTargeted = true;
-        }
-        else
-        {
-            obstacleStats.isTargeted = false;
         }
     }
 

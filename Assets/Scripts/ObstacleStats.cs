@@ -35,6 +35,7 @@ public class ObstacleStats : MonoBehaviour
     private float o_damageTaken;
 
     AIDuckManager manager => AIDuckManager.Instance;
+    private Coroutine assignDucks;
 
     public float health
     {
@@ -87,7 +88,6 @@ public class ObstacleStats : MonoBehaviour
     void Start()
     {
         StartCoroutine(ReduceHealth());
-        StartCoroutine(AssignDucks());
     }
 
     void Update()
@@ -107,10 +107,10 @@ public class ObstacleStats : MonoBehaviour
     {
         while(true)
         {
-            yield return new WaitForSeconds(1f);
+            yield return null;
             if ((o_isDuckable || o_overrideIsDuckable) && o_health > 0 && o_isLasered)
             {
-                o_health -= o_damageTaken;
+                o_health -= (o_damageTaken * Time.deltaTime);
 
                 duckConversionController dcc = this.gameObject.GetComponent<duckConversionController>();
                 float healthRatio = o_health/o_maxHealth;
@@ -128,12 +128,9 @@ public class ObstacleStats : MonoBehaviour
 
     private IEnumerator AssignDucks()
     {
-        float timeElapsed = 0;
         while(true)
         {
-            timeElapsed += Time.deltaTime;
-            //TODO: increase ducks assigned rate based on time passed and max ducks allowed
-            if ((o_isDuckable || o_overrideIsDuckable) && o_health > 0 && o_isTargeted)
+            if ((o_isDuckable || o_overrideIsDuckable) && o_health > 0)
             {
                 manager.SendDuckToAttack(this.gameObject.GetComponent<ObstacleStats>());
             }
@@ -141,8 +138,20 @@ public class ObstacleStats : MonoBehaviour
         }
     }
 
-    public void StopAllCoroutinesObstacle()
-    {
-        StopCoroutine(ReduceHealth());
+    private void OnMouseDown() {
+        if (!o_isTargeted)
+        {
+            assignDucks = StartCoroutine(AssignDucks());
+        }
+
+        o_isTargeted = true;
+    }
+
+    private void OnMouseUp() {
+        o_isTargeted = false;
+        if (assignDucks != null)
+        {
+            StopCoroutine(assignDucks);
+        }
     }
 }
