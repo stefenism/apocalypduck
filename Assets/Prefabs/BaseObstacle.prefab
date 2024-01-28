@@ -278,7 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 9055859072837969849, guid: c88e200287e2bb74797d1273f3e6f934, type: 3}
   spawCount: 1
-  spawnForce: 100
+  spawnForce: 10
 --- !u!1 &8780303830847184843
 GameObject:
   m_ObjectHideFlags: 0
