@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &9055572280071822229
+--- !u!1001 &5506917604365113828
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,65 +8,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 69515967650383751, guid: a059027727906954ea24e93f442c906c, type: 3}
-      propertyPath: m_Name
-      value: Aura
-      objectReference: {fileID: 0}
     - target: {fileID: 595223253843080481, guid: a059027727906954ea24e93f442c906c, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -8838262545178431043, guid: e0dd8c2f9f3e0bc449a049c76a54d6e7, type: 3}
+      objectReference: {fileID: -2229326029517263280, guid: 422fc55a6496ba7498d65731764df198, type: 3}
     - target: {fileID: 1207025593164643529, guid: a059027727906954ea24e93f442c906c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 8010411459171294081, guid: e0dd8c2f9f3e0bc449a049c76a54d6e7, type: 3}
+      objectReference: {fileID: 8727521701710022098, guid: 422fc55a6496ba7498d65731764df198, type: 3}
     - target: {fileID: 1288596119110801167, guid: a059027727906954ea24e93f442c906c, type: 3}
       propertyPath: m_Name
-      value: Hand Soap
+      value: Child Gate Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1623308653877773044, guid: a059027727906954ea24e93f442c906c, type: 3}
       propertyPath: m_Extents.x
-      value: 1.5
+      value: 34.5
       objectReference: {fileID: 0}
     - target: {fileID: 1623308653877773044, guid: a059027727906954ea24e93f442c906c, type: 3}
       propertyPath: m_Extents.z
-      value: 1.5
+      value: 34.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2887973210803546743, guid: a059027727906954ea24e93f442c906c, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -8838262545178431043, guid: e0dd8c2f9f3e0bc449a049c76a54d6e7, type: 3}
-    - target: {fileID: 3343605888226014311, guid: a059027727906954ea24e93f442c906c, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -8838262545178431043, guid: e0dd8c2f9f3e0bc449a049c76a54d6e7, type: 3}
+    - target: {fileID: 2506681381285749131, guid: a059027727906954ea24e93f442c906c, type: 3}
+      propertyPath: o_health
+      value: 3500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506681381285749131, guid: a059027727906954ea24e93f442c906c, type: 3}
+      propertyPath: o_maxHealth
+      value: 3500
+      objectReference: {fileID: 0}
     - target: {fileID: 4777456013289468383, guid: a059027727906954ea24e93f442c906c, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -8838262545178431043, guid: e0dd8c2f9f3e0bc449a049c76a54d6e7, type: 3}
-    - target: {fileID: 5482985411124345032, guid: a059027727906954ea24e93f442c906c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5482985411124345032, guid: a059027727906954ea24e93f442c906c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5482985411124345032, guid: a059027727906954ea24e93f442c906c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -2229326029517263280, guid: 422fc55a6496ba7498d65731764df198, type: 3}
     - target: {fileID: 5482985411124345032, guid: a059027727906954ea24e93f442c906c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.15
+      value: -442.2
       objectReference: {fileID: 0}
     - target: {fileID: 5482985411124345032, guid: a059027727906954ea24e93f442c906c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.56
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 5482985411124345032, guid: a059027727906954ea24e93f442c906c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.35
+      value: -123
       objectReference: {fileID: 0}
     - target: {fileID: 5482985411124345032, guid: a059027727906954ea24e93f442c906c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -96,10 +80,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6805460771787021607, guid: a059027727906954ea24e93f442c906c, type: 3}
+      propertyPath: spawCount
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 7768276640994555819, guid: a059027727906954ea24e93f442c906c, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -8838262545178431043, guid: e0dd8c2f9f3e0bc449a049c76a54d6e7, type: 3}
+      objectReference: {fileID: -2229326029517263280, guid: 422fc55a6496ba7498d65731764df198, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

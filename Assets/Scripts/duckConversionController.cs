@@ -11,13 +11,6 @@ public class duckConversionController : MonoBehaviour {
     ObstacleStats thisObstacle;
 
     void Update() {
-        if(Input.GetKeyDown("f")) {
-            Debug.Log("setting new percent filled");
-            Debug.Log("rend.material is " + rend.material);
-            float newRandom = Random.value;
-            Debug.Log("new random is: " + newRandom);
-            SetPercentFilled(newRandom);
-        }
     }
 
     void Start() {

@@ -51,6 +51,7 @@ public class AIDuckController : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         manager.allDucks.Add(this);
+        manager.updateDuckCount();
         LaunchDuck();
     }
 
@@ -59,6 +60,7 @@ public class AIDuckController : MonoBehaviour
         manager.allDucks.Remove(this);
         manager.busyDucks.Remove(this);
         manager.avaiableDucks.Remove(this);
+        manager.updateDuckCount();
     }
 
     async void LaunchDuck()
@@ -96,6 +98,7 @@ public class AIDuckController : MonoBehaviour
         if (state == AiDuckState.followPlayer) return;
         manager.busyDucks.Remove(this);
         manager.avaiableDucks.Add(this);
+        manager.updateDuckCount();
         isLasering = false;
         target = manager.player.duckAIGatherPoint;
         state = AiDuckState.followPlayer;
@@ -107,6 +110,7 @@ public class AIDuckController : MonoBehaviour
         {
             manager.busyDucks.Add(this);
             manager.avaiableDucks.Remove(this);
+            manager.updateDuckCount();
         }
         SoundManager.PlaySound(attackSound, transform, attackPitchMod, attackVolume);
         attackObstacle = attackObj;
