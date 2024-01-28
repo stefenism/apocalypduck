@@ -12,6 +12,8 @@ public class AIDuckManager : MonoBehaviourSingleton<AIDuckManager>
     public int DuckCount => allDucks.Count;
     public int AvailableDuckCount => avaiableDucks.Count;
 
+    public float AiDPS = 0.5f;
+
     void Start()
     {
         
