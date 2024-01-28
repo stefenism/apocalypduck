@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3802576466592525296}
   - component: {fileID: 5369765910888566263}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LeftLaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1037862301238081291}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LeftEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7707869713958916616}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RightEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7791164935374331377}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DuckPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1080531896513182575}
   - component: {fileID: 9024396708665651622}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RightLaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +382,7 @@ GameObject:
   - component: {fileID: 8773597092785668736}
   - component: {fileID: 4644264131019648508}
   - component: {fileID: 8840500863299024155}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,6 +523,9 @@ MonoBehaviour:
   LandingSound: {fileID: 8300000, guid: e6c8a653c46c67549aaf626da21971ce, type: 3}
   landingPitchMod: {x: 0.5, y: 1}
   landingVolume: 0.1
+  attackSound: {fileID: 8300000, guid: 858b13a6c341c064f95e1f9d10fdcbae, type: 3}
+  attackPitchMod: {x: 0.25, y: 0.8}
+  attackVolume: 0.5
 --- !u!114 &4644264131019648508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,6 +623,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8af809a2f4c2d5647942589a151dced1, type: 3}
       propertyPath: m_Name
       value: DuckMesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8af809a2f4c2d5647942589a151dced1, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

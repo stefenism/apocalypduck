@@ -5731,14 +5731,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 152039317663653857, guid: 9aadb7f6a7db041419e5ded1a9d94cca, type: 3}
-      propertyPath: landingVolume
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 152039317663653857, guid: 9aadb7f6a7db041419e5ded1a9d94cca, type: 3}
-      propertyPath: landingPitchMod
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 5646826361430492521, guid: 9aadb7f6a7db041419e5ded1a9d94cca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.86

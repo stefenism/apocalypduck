@@ -37,6 +37,9 @@ public class AIDuckController : MonoBehaviour
     public AudioClip LandingSound;
     public Vector2 landingPitchMod;
     public float landingVolume = 0.4f;
+    public AudioClip attackSound;
+    public Vector2 attackPitchMod;
+    public float attackVolume = 0.4f;
 
     AIDuckManager manager => AIDuckManager.Instance;
 
@@ -102,6 +105,7 @@ public class AIDuckController : MonoBehaviour
             manager.busyDucks.Add(this);
             manager.avaiableDucks.Remove(this);
         }
+        SoundManager.PlaySound(attackSound, transform, attackPitchMod, attackVolume);
         attackObstacle = attackObj;
         state = AiDuckState.attackObject;
         isLasering = true;
