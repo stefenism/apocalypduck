@@ -207,8 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab32977cc7044eafbd5f8e18b5ccbf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 0}
-  o_health: 2
+  o_health: 4
   o_maxHealth: 4
   o_convertToDucks: 15
   o_isDuckable: 0
@@ -279,7 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 9055859072837969849, guid: c88e200287e2bb74797d1273f3e6f934, type: 3}
   spawCount: 1
-  spawnForce: 1000
+  spawnForce: 100
 --- !u!1 &8780303830847184843
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +308,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5482985411124345032}
