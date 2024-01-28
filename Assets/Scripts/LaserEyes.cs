@@ -15,6 +15,8 @@ public class LaserEyes : MonoBehaviour
     public Material laserMat;
     LineRenderer laserLine;
 
+    public AudioSource laserSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -124,6 +126,22 @@ public class LaserEyes : MonoBehaviour
             laserLine.SetPosition(1, transform.position);
             laserLine.enabled = false;
             lastSightedEnemy = null;
+        }
+
+        //audio
+        if (laserLine.enabled)
+        {
+            if (laserSource && !laserSource.isPlaying)
+            {
+                laserSource.Play();
+            }
+        }
+        else
+        {
+            if (laserSource && laserSource.isPlaying)
+            {
+                laserSource.Stop();
+            }
         }
     }
 

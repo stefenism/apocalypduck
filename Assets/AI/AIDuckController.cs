@@ -34,6 +34,8 @@ public class AIDuckController : MonoBehaviour
     public Transform LeftEye;
     public Transform RightEye;
 
+
+    public AudioSource laserPlayer;
     public AudioClip LandingSound;
     public Vector2 landingPitchMod;
     public float landingVolume = 0.4f;
@@ -199,11 +201,20 @@ public class AIDuckController : MonoBehaviour
             laserLineRight.enabled = true;
             laserLineRight.SetPosition(0, RightEye.position);
             laserLineRight.SetPosition(1, attackObstacle.transform.position);
+
+            if (!laserPlayer.isPlaying)
+            {
+                laserPlayer.Play();
+            }
         }
         else
         {
             laserLineLeft.enabled = false;
             laserLineRight.enabled = false;
+            if (laserPlayer.isPlaying)
+            {
+                laserPlayer.Stop();
+            }
         }
     }
 
