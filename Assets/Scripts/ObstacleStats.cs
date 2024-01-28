@@ -166,6 +166,7 @@ public class ObstacleStats : MonoBehaviour
                 if(timer <= 0f){
                     manager.SendDuckToAttack(this.gameObject.GetComponent<ObstacleStats>());
                     timer = duckApplied ? .1f : 1f;
+                    duckApplied = true;
                 }
             }
             yield return null;
