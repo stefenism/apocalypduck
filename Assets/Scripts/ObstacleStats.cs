@@ -36,6 +36,8 @@ public class ObstacleStats : MonoBehaviour
     AIDuckManager manager => AIDuckManager.Instance;
     private Coroutine assignDucks;
 
+    private float timeSinceLastReduceHealth = 0;
+
     public float health
     {
         get { return o_health; }
@@ -107,21 +109,45 @@ public class ObstacleStats : MonoBehaviour
         while(true)
         {
             yield return null;
+
+            // if(timeSinceLastReduceHealth >= 1) {
+            //     // if ((o_isDuckable || o_overrideIsDuckable) && o_health > 0 && o_isLasered)
+            //     // {
+            //     //     // o_health -= (o_damageTaken * Time.deltaTime);
+            //     //     o_health -= GameManager.Instance.playerDps;
+
+            //     //     duckConversionController dcc = this.gameObject.GetComponentInChildren<duckConversionController>();
+            //     //     float healthRatio = o_health/o_maxHealth;
+            //     //     dcc.SetPercentFilled(healthRatio);
+
+            //     //     if (o_health <= 0)
+            //     //     {
+            //     //         o_health = 0;
+            //     //         spawner s = this.gameObject.GetComponent<spawner>();
+            //     //         s.spawn();
+            //     //     }
+            //     // }
+            //     timeSinceLastReduceHealth = 0;
+            // } else {
+            //     Debug.Log("time delta time is: " + (GameManager.Instance.playerDps * Time.deltaTime));
+            //     timeSinceLastReduceHealth += Time.deltaTime;
+            // }
             if ((o_isDuckable || o_overrideIsDuckable) && o_health > 0 && o_isLasered)
-            {
-                o_health -= (o_damageTaken * Time.deltaTime);
-
-                duckConversionController dcc = this.gameObject.GetComponentInChildren<duckConversionController>();
-                float healthRatio = o_health/o_maxHealth;
-                dcc.SetPercentFilled(healthRatio);
-
-                if (o_health <= 0)
                 {
-                    o_health = 0;
-                    spawner s = this.gameObject.GetComponent<spawner>();
-                    s.spawn();
+                    // o_health -= (o_damageTaken * Time.deltaTime);
+                    o_health -= (GameManager.Instance.playerDps * Time.deltaTime);
+
+                    duckConversionController dcc = this.gameObject.GetComponentInChildren<duckConversionController>();
+                    float healthRatio = o_health/o_maxHealth;
+                    dcc.SetPercentFilled(healthRatio);
+
+                    if (o_health <= 0)
+                    {
+                        o_health = 0;
+                        spawner s = this.gameObject.GetComponent<spawner>();
+                        s.spawn();
+                    }
                 }
-            }
         }
     }
 
