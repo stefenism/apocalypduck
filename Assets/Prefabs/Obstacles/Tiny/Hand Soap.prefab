@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Aura
       objectReference: {fileID: 0}
+    - target: {fileID: 595223253843080481, guid: a059027727906954ea24e93f442c906c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -8838262545178431043, guid: e0dd8c2f9f3e0bc449a049c76a54d6e7, type: 3}
     - target: {fileID: 1207025593164643529, guid: a059027727906954ea24e93f442c906c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

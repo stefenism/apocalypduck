@@ -32,6 +32,10 @@ PrefabInstance:
       propertyPath: m_Extents.z
       value: 0.69
       objectReference: {fileID: 0}
+    - target: {fileID: 4219362198836467246, guid: 69736d33a14403e44ae9c78f28ca24b0, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 3390558720134950976, guid: 77505c3ec4cb66a40bab35cb4e110a6f, type: 3}
     - target: {fileID: 6413954384546518180, guid: 69736d33a14403e44ae9c78f28ca24b0, type: 3}
       propertyPath: m_Mesh
       value: 
