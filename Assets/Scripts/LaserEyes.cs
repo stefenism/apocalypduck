@@ -48,6 +48,15 @@ public class LaserEyes : MonoBehaviour
         laserLine.colorGradient = yellowColor;
     }
 
+    private bool obstacleIsTargetable(ObstacleStats obj) {
+        float duckDamageTenSeconds = (AIDuckManager.Instance.DuckCount * AIDuckManager.Instance.AiDPS * 10);
+        float playerDamgeTenSeconds = 10;
+        float totalDamageTenSeconds = duckDamageTenSeconds + playerDamgeTenSeconds;
+        bool canTarget = obj.maxHealth <= totalDamageTenSeconds;
+
+        return canTarget;
+    }
+
     private void GetAndDrawRay()
     {
         if (obstacleStats == null)
@@ -69,6 +78,10 @@ public class LaserEyes : MonoBehaviour
                     lastSightedEnemy.isInSights = false;
                 }
                 obstacleStats = targetObject.GetComponent<ObstacleStats>();
+                bool canTarget = obstacleIsTargetable(obstacleStats);
+                if(!canTarget) {
+                    obstacleStats = null;
+                }
             }
             else if (targetObject.layer == 6 && !(Input.GetMouseButton(0) || Input.GetMouseButton(1))) {
                 Debug.Log("no mouse button but object is on right layer");
@@ -77,8 +90,13 @@ public class LaserEyes : MonoBehaviour
                 }
 
                 obstacleStats = targetObject.GetComponent<ObstacleStats>();
-                lastSightedEnemy = obstacleStats;
-                lastSightedEnemy.isInSights = true;
+                bool canTarget = obstacleIsTargetable(obstacleStats);
+                if(canTarget) {
+                    lastSightedEnemy = obstacleStats;
+                    lastSightedEnemy.isInSights = true;
+                } else {
+                    obstacleStats = null;
+                }
             }
             else if (targetObject.layer != 6)
             {
