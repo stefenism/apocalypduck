@@ -87,7 +87,7 @@ public class AIDuckController : MonoBehaviour
         manager.busyDucks.Remove(this);
         manager.avaiableDucks.Add(this);
         isLasering = false;
-        target = manager.player.transform;
+        target = manager.player.duckAIGatherPoint;
         state = AiDuckState.followPlayer;
     }
 

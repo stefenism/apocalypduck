@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : MonoBehaviourSingleton<PlayerStats>
 {
     [SerializeField]
     private int m_laserPower;

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ObstacleStats : MonoBehaviour
 {
-    [SerializeField]
-    private PlayerStats playerStats;
+    private PlayerStats playerStats => PlayerStats.Instance;
 
     [SerializeField]
     private float o_health = 100;
