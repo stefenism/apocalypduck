@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     bool jumpCooldown = false;
     bool isLasering = false;
 
+
     public AudioClip LandingSound;
     public Vector2 landingPitchMod;
     public float landingVolume = 0.4f;
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        
         playerCamera = GameObject.FindGameObjectWithTag("MainCamera").transform;
         duckManager.player = this;
 

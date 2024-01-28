@@ -34,12 +34,15 @@ public class AIDuckController : MonoBehaviour
     public Transform LeftEye;
     public Transform RightEye;
 
+
+    public AudioSource laserPlayer;
     public AudioClip LandingSound;
     public Vector2 landingPitchMod;
     public float landingVolume = 0.4f;
     public AudioClip attackSound;
     public Vector2 attackPitchMod;
     public float attackVolume = 0.4f;
+    public AudioClip explosionSound;
 
     AIDuckManager manager => AIDuckManager.Instance;
 
@@ -188,8 +191,10 @@ public class AIDuckController : MonoBehaviour
             dcc.SetPercentFilled(healthRatio);
 
             if(attackObstacle.health <= 0) {
+                SoundManager.PlaySound(explosionSound, attackObstacle.transform, new Vector2(-0.4f, 0.4f), 0.6f);
                 spawner s = attackObstacle.gameObject.GetComponent<spawner>();
                 s.spawn();
+               
             }
 
             //Render Laser
@@ -199,11 +204,20 @@ public class AIDuckController : MonoBehaviour
             laserLineRight.enabled = true;
             laserLineRight.SetPosition(0, RightEye.position);
             laserLineRight.SetPosition(1, attackObstacle.transform.position);
+
+            if (!laserPlayer.isPlaying)
+            {
+                laserPlayer.Play();
+            }
         }
         else
         {
             laserLineLeft.enabled = false;
             laserLineRight.enabled = false;
+            if (laserPlayer.isPlaying)
+            {
+                laserPlayer.Stop();
+            }
         }
     }
 

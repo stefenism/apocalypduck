@@ -19,6 +19,7 @@ public class SoundManager : MonoBehaviour {
         AudioSource audioSource = Instantiate(instance.audioSourcePrefab, soundTransform.position, soundTransform.rotation);
         audioSource.pitch = initialPitch + Random.Range(pitchVariation.x, pitchVariation.y);
         audioSource.volume = volume;
+        audioSource.spatialBlend = 0.8f;
         audioSource.PlayOneShot(clip);
         Destroy(audioSource.gameObject, clip.length);
     }
