@@ -11,6 +11,7 @@ public class AIDuckManager : MonoBehaviourSingleton<AIDuckManager>
 
     public int DuckCount => allDucks.Count;
     public int AvailableDuckCount => avaiableDucks.Count;
+    public int BusyDuckCount => busyDucks.Count;
 
     public float AiDPS = 0.5f;
 
@@ -27,5 +28,11 @@ public class AIDuckManager : MonoBehaviourSingleton<AIDuckManager>
         }
     }
 
-
+    public void RecallAllDucks()
+    {
+        while( BusyDuckCount > 0 )
+        {
+            busyDucks[0].FollowPlayer();
+        }
+    }
 }

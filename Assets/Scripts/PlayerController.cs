@@ -34,6 +34,15 @@ public class PlayerController : MonoBehaviour
         playerMoveInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
         MovePlayer();
         RotatePlayer();
+        RecallAllDucks();
+    }
+
+    private void RecallAllDucks()
+    {
+        if (Input.GetKeyDown("e"))
+        {
+            duckManager.RecallAllDucks();
+        }
     }
 
     private void MovePlayer()
