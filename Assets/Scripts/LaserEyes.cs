@@ -94,6 +94,8 @@ public class LaserEyes : MonoBehaviour
                     lastSightedEnemy = null;
                 }
 
+                laserLine.enabled = false;
+
                 ChangeRayColor(Color.yellow);
             }
 
@@ -102,6 +104,7 @@ public class LaserEyes : MonoBehaviour
         else
         {
             laserLine.SetPosition(1, transform.position);
+            laserLine.enabled = false;
             lastSightedEnemy = null;
         }
     }
