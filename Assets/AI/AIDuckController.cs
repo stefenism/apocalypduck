@@ -174,6 +174,16 @@ public class AIDuckController : MonoBehaviour
             //add damage
             attackObstacle.health -= manager.AiDPS * Time.deltaTime;
 
+            duckConversionController dcc = attackObstacle.gameObject.GetComponent<duckConversionController>();
+            float healthRatio = attackObstacle.health/attackObstacle.maxHealth;
+            Debug.Log("health ratio is: " + healthRatio);
+            dcc.SetPercentFilled(healthRatio);
+
+            if(attackObstacle.health <= 0) {
+                spawner s = attackObstacle.gameObject.GetComponent<spawner>();
+                s.spawn();
+            }
+
             //Render Laser
             laserLineLeft.enabled = true;
             laserLineLeft.SetPosition(0, LeftEye.position);

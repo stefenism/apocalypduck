@@ -11,6 +11,7 @@ public class LaserEyes : MonoBehaviour
     [SerializeField]
     private ObstacleStats obstacleStats = null;
     private GameObject targetObject;
+    private ObstacleStats lastSightedEnemy;
     LineRenderer laserLine;
 
     // Start is called before the first frame update
@@ -60,7 +61,21 @@ public class LaserEyes : MonoBehaviour
 
             if (targetObject.layer == 6 && (Input.GetMouseButton(0) || Input.GetMouseButton(1)))
             {
+
+                if(lastSightedEnemy != null) {
+                    lastSightedEnemy.isInSights = false;
+                }
                 obstacleStats = targetObject.GetComponent<ObstacleStats>();
+            }
+            else if (targetObject.layer == 6 && !(Input.GetMouseButton(0) || Input.GetMouseButton(1))) {
+                
+                if(lastSightedEnemy != null) {
+                    lastSightedEnemy.isInSights = false;
+                }
+
+                obstacleStats = targetObject.GetComponent<ObstacleStats>();
+                lastSightedEnemy = obstacleStats;
+                lastSightedEnemy.isInSights = true;
             }
             else if (targetObject.layer != 6)
             {
@@ -70,6 +85,12 @@ public class LaserEyes : MonoBehaviour
                     obstacleStats.isTargeted = false;
                     obstacleStats = null;
                 }
+
+                if(lastSightedEnemy != null) {
+                    lastSightedEnemy.isInSights = false;
+                    lastSightedEnemy = null;
+                }
+
                 ChangeRayColor(Color.yellow);
             }
 
@@ -78,6 +99,7 @@ public class LaserEyes : MonoBehaviour
         else
         {
             laserLine.SetPosition(1, transform.position);
+            lastSightedEnemy = null;
         }
     }
 

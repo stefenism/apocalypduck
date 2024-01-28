@@ -8,7 +8,10 @@ public class ObstacleStats : MonoBehaviour
     private PlayerStats playerStats;
 
     [SerializeField]
-    private float o_health;
+    private float o_health = 100;
+
+    [SerializeField]
+    private float o_maxHealth = 100;
 
     [SerializeField]
     private int o_convertToDucks;
@@ -26,6 +29,9 @@ public class ObstacleStats : MonoBehaviour
     private bool o_isTargeted = false;
 
     [SerializeField]
+    private bool o_isInSights = false;
+
+    [SerializeField]
     private float o_damageTaken;
 
     AIDuckManager manager => AIDuckManager.Instance;
@@ -34,6 +40,12 @@ public class ObstacleStats : MonoBehaviour
     {
         get { return o_health; }
         set { o_health = value; }
+    }
+
+    public float maxHealth
+    {
+        get { return o_maxHealth; }
+        set { o_maxHealth = value; }
     }
 
     public int convertToDucks
@@ -58,6 +70,12 @@ public class ObstacleStats : MonoBehaviour
     {
         get { return o_isTargeted; }
         set { o_isTargeted = value; }
+    }
+
+    public bool isInSights
+    {
+        get { return o_isInSights; }
+        set { o_isInSights = value; }
     }
 
     public float damageTaken
@@ -93,9 +111,16 @@ public class ObstacleStats : MonoBehaviour
             if ((o_isDuckable || o_overrideIsDuckable) && o_health > 0 && o_isLasered)
             {
                 o_health -= o_damageTaken;
-                if (o_health < 0)
+
+                duckConversionController dcc = this.gameObject.GetComponent<duckConversionController>();
+                float healthRatio = o_health/o_maxHealth;
+                dcc.SetPercentFilled(healthRatio);
+
+                if (o_health <= 0)
                 {
                     o_health = 0;
+                    spawner s = this.gameObject.GetComponent<spawner>();
+                    s.spawn();
                 }
             }
         }
