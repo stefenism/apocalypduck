@@ -108,11 +108,11 @@ public class ObstacleStats : MonoBehaviour
         {
             timeElapsed += Time.deltaTime;
             //TODO: increase ducks assigned rate based on time passed and max ducks allowed
-            yield return new WaitForSeconds(1f);
             if ((o_isDuckable || o_overrideIsDuckable) && o_health > 0 && o_isTargeted)
             {
                 manager.SendDuckToAttack(this.gameObject.GetComponent<ObstacleStats>());
             }
+            yield return new WaitForSeconds(1f);
         }
     }
 
