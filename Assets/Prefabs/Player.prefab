@@ -774,7 +774,7 @@ MonoBehaviour:
   duckMesh: {fileID: 1320712038451651516}
   LandingSound: {fileID: 8300000, guid: e6c8a653c46c67549aaf626da21971ce, type: 3}
   landingPitchMod: {x: 0, y: 0.6}
-  landingVolume: 0.7
+  landingVolume: 1.2
 --- !u!114 &5401712955515951202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -837,9 +837,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b109c17417e3c3841a5b39dc600373c3, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: -0.2
+  m_Pitch: -0.41
   Loop: 1
   Mute: 0
   Spatialize: 0
