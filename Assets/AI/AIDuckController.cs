@@ -34,6 +34,10 @@ public class AIDuckController : MonoBehaviour
     public Transform LeftEye;
     public Transform RightEye;
 
+    public AudioClip LandingSound;
+    public Vector2 landingPitchMod;
+    public float landingVolume = 0.4f;
+
     AIDuckManager manager => AIDuckManager.Instance;
 
     // Start is called before the first frame update
@@ -232,7 +236,9 @@ public class AIDuckController : MonoBehaviour
         LeanTween.moveLocalY( duckMesh, 0.6f , upTime).setEaseOutCirc();
         await Task.Delay( Mathf.RoundToInt(upTime * 1000));
         LeanTween.moveLocalY(duckMesh, 0.0f, dropTime).setEaseInCirc();
-        await Task.Delay(Mathf.RoundToInt((dropTime + groundTime) * 1000));
+        await Task.Delay(Mathf.RoundToInt((dropTime) * 1000));
+        SoundManager.PlaySound(LandingSound, transform, landingPitchMod, landingVolume);
+        await Task.Delay(Mathf.RoundToInt((groundTime) * 1000));
         jumpCooldown = false;
     }
 }
