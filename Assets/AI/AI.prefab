@@ -528,6 +528,7 @@ MonoBehaviour:
   attackSound: {fileID: 8300000, guid: 858b13a6c341c064f95e1f9d10fdcbae, type: 3}
   attackPitchMod: {x: 0.25, y: 0.8}
   attackVolume: 1
+  explosionSound: {fileID: 8300000, guid: 5492cea82d606374588889a019c88b79, type: 3}
 --- !u!114 &4644264131019648508
 MonoBehaviour:
   m_ObjectHideFlags: 0

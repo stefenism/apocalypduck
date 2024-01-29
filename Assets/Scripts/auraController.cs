@@ -16,10 +16,6 @@ public class auraController : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if(Input.GetKeyDown("n")) {
-            toggleAura();
-        }
-
         if(thisObstacle.isInSights && auraClone.activeSelf == false) {
             Debug.Log("being targeted, activate aura");
             setTargeted();

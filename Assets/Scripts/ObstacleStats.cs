@@ -38,6 +38,8 @@ public class ObstacleStats : MonoBehaviour
 
     private float timeSinceLastReduceHealth = 0;
 
+    public AudioClip explosionSound;
+
     public float health
     {
         get { return o_health; }
@@ -146,6 +148,7 @@ public class ObstacleStats : MonoBehaviour
                         o_health = 0;
                         spawner s = this.gameObject.GetComponent<spawner>();
                         s.spawn();
+                        SoundManager.PlaySound(explosionSound, transform, new Vector2(-0.4f,0.4f), 0.6f);
                     }
                 }
         }

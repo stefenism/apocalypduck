@@ -42,6 +42,7 @@ public class AIDuckController : MonoBehaviour
     public AudioClip attackSound;
     public Vector2 attackPitchMod;
     public float attackVolume = 0.4f;
+    public AudioClip explosionSound;
 
     AIDuckManager manager => AIDuckManager.Instance;
 
@@ -50,6 +51,7 @@ public class AIDuckController : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         manager.allDucks.Add(this);
+        manager.updateDuckCount();
         LaunchDuck();
     }
 
@@ -58,6 +60,7 @@ public class AIDuckController : MonoBehaviour
         manager.allDucks.Remove(this);
         manager.busyDucks.Remove(this);
         manager.avaiableDucks.Remove(this);
+        manager.updateDuckCount();
     }
 
     async void LaunchDuck()
@@ -95,6 +98,7 @@ public class AIDuckController : MonoBehaviour
         if (state == AiDuckState.followPlayer) return;
         manager.busyDucks.Remove(this);
         manager.avaiableDucks.Add(this);
+        manager.updateDuckCount();
         isLasering = false;
         target = manager.player.duckAIGatherPoint;
         state = AiDuckState.followPlayer;
@@ -106,6 +110,7 @@ public class AIDuckController : MonoBehaviour
         {
             manager.busyDucks.Add(this);
             manager.avaiableDucks.Remove(this);
+            manager.updateDuckCount();
         }
         SoundManager.PlaySound(attackSound, transform, attackPitchMod, attackVolume);
         attackObstacle = attackObj;
@@ -190,8 +195,10 @@ public class AIDuckController : MonoBehaviour
             dcc.SetPercentFilled(healthRatio);
 
             if(attackObstacle.health <= 0) {
+                SoundManager.PlaySound(explosionSound, attackObstacle.transform, new Vector2(-0.4f, 0.4f), 0.6f);
                 spawner s = attackObstacle.gameObject.GetComponent<spawner>();
                 s.spawn();
+               
             }
 
             //Render Laser
@@ -255,5 +262,15 @@ public class AIDuckController : MonoBehaviour
         SoundManager.PlaySound(LandingSound, transform, landingPitchMod, landingVolume);
         await Task.Delay(Mathf.RoundToInt((groundTime) * 1000));
         jumpCooldown = false;
+    }
+
+    public async void ConsumeDuck()
+    {
+        state = AiDuckState.none;
+        agent.enabled = false;
+        LeanTween.move(duckPos, manager.player.transform.position, 0.75f).setEaseInCirc();
+        await Task.Delay(750);
+        Destroy(duckPos);
+        Destroy(gameObject);
     }
 }
