@@ -52,7 +52,7 @@ public class LaserEyes : MonoBehaviour
 
     private bool obstacleIsTargetable(ObstacleStats obj) {
         float duckDamageTenSeconds = (AIDuckManager.Instance.DuckCount * AIDuckManager.Instance.AiDPS * 10);
-        float playerDamgeTenSeconds = 10;
+        float playerDamgeTenSeconds = (GameManager.Instance.playerDps * 10);
         float totalDamageTenSeconds = duckDamageTenSeconds + playerDamgeTenSeconds;
         bool canTarget = obj.maxHealth <= totalDamageTenSeconds;
 
