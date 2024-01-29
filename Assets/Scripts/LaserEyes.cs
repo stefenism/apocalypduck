@@ -76,6 +76,8 @@ public class LaserEyes : MonoBehaviour
             if (targetObject.layer == 6 && (Input.GetMouseButton(0) || Input.GetMouseButton(1)))
             {
 
+                Debug.Log("inside get mouse button 0");
+
                 if(lastSightedEnemy != null) {
                     lastSightedEnemy.isInSights = false;
                 }

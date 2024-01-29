@@ -160,8 +160,10 @@ public class ObstacleStats : MonoBehaviour
         bool duckApplied = false;
         while(true)
         {
+            Debug.Log("inside assign ducks");
             if ((o_isDuckable || o_overrideIsDuckable) && o_health > 0)
             {
+                Debug.Log("assign ducks inside");
                 timer -= Time.deltaTime;
                 if(timer <= 0f){
                     manager.SendDuckToAttack(this.gameObject.GetComponent<ObstacleStats>());
@@ -174,6 +176,7 @@ public class ObstacleStats : MonoBehaviour
     }
 
     private void OnMouseDown() {
+        Debug.Log("on mouse down obstacles stats, is targeted: " + o_isTargeted);
         if (!o_isTargeted)
         {
             assignDucks = StartCoroutine(AssignDucks());
