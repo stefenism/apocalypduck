@@ -46,6 +46,8 @@ public class PlayerController : MonoBehaviour
 
         duckPos.transform.parent = null;
         JumpToPosition();
+
+        GameManager.Instance.player = this;
     }
 
     // Update is called once per frame
