@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+using UnityEngine.SceneManagement;
+
 public class GameManager : MonoBehaviourSingleton<GameManager>
 {
     // player stats
@@ -33,6 +35,11 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         playerSize += 1;
 
         cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_CameraDistance += 4;
+
+        if(playerSize == 3) {
+            //change to blowup scene.
+            SceneManager.LoadScene("HouseExplosion", LoadSceneMode.Single);
+        }
     }
 
 }
