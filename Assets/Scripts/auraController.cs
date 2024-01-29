@@ -17,10 +17,8 @@ public class auraController : MonoBehaviour
     // Update is called once per frame
     void Update() {
         if(thisObstacle.isInSights && auraClone.activeSelf == false) {
-            Debug.Log("being targeted, activate aura");
             setTargeted();
         } else if(!thisObstacle.isInSights && auraClone.activeSelf == true) {
-            Debug.Log("no longer being targeted, deactivate aura");
             setUnTargeted();
         }
     }
