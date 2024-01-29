@@ -263,4 +263,14 @@ public class AIDuckController : MonoBehaviour
         await Task.Delay(Mathf.RoundToInt((groundTime) * 1000));
         jumpCooldown = false;
     }
+
+    public async void ConsumeDuck()
+    {
+        state = AiDuckState.none;
+        agent.enabled = false;
+        LeanTween.move(duckPos, manager.player.transform.position, 0.75f).setEaseInCirc();
+        await Task.Delay(750);
+        Destroy(duckPos);
+        Destroy(gameObject);
+    }
 }

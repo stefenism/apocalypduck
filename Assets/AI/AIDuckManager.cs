@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 using TMPro;
+using System.Threading.Tasks;
 
 public class AIDuckManager : MonoBehaviourSingleton<AIDuckManager>
 {
@@ -45,6 +46,19 @@ public class AIDuckManager : MonoBehaviourSingleton<AIDuckManager>
         {
             busyDucks[0].FollowPlayer();
         }
+    }
+
+    public async Task ConsumeAllDucks()
+    {
+
+        foreach (AIDuckController duck in allDucks)
+        {
+            duck.ConsumeDuck();
+        }
+        allDucks.Clear();
+        busyDucks.Clear();
+        avaiableDucks.Clear();
+        await Task.Delay(750);
     }
 
     public void updateDuckCount() {
