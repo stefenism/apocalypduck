@@ -191,7 +191,6 @@ public class AIDuckController : MonoBehaviour
 
             duckConversionController dcc = attackObstacle.gameObject.GetComponentInChildren<duckConversionController>();
             float healthRatio = attackObstacle.health/attackObstacle.maxHealth;
-            Debug.Log("health ratio is: " + healthRatio);
             dcc.SetPercentFilled(healthRatio);
 
             if(attackObstacle.health <= 0) {
